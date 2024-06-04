@@ -21,3 +21,15 @@ export async function POST(req: NextRequest) {
     }
     
 }
+
+export async function GET() {
+    const prisma = new PrismaClient();
+    try {
+        const data = await prisma.post.findMany();
+        return NextResponse.json({
+            post: data
+        })
+    } catch(e) {
+
+    }
+}

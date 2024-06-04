@@ -1,14 +1,19 @@
-"use server"
-import { PrismaClient } from '@prisma/client'
-import React from 'react'
+"use client"
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
-const page = async () => {
-    const prisma = new PrismaClient();
-    const post = await prisma.post.findMany() as any;
-
+const page =  () => {
+    const [post, setPost] = useState(null) as any;
+    useEffect(() => {
+      (async() => {
+        const data = await axios.get("/api/post") as any;
+        setPost(data.data.post);
+      })()
+    }, [])
+    
   return (
     <div>
-        {post.map((item:any, _ind:any) => {
+        {post?.map((item:any, _ind:any) => {
             return (
             <div key={_ind}>
                 {item.username}: {item.post}
