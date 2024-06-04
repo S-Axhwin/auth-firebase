@@ -2,11 +2,15 @@
 import React from 'react'
 import { UserAuth } from '../context/UserAuth'
 import NotLog from './NotLog';
+import LogNav from './LogNav';
 const Navbar = () => {
-  const { user } = UserAuth();
+  const { user, loading } = UserAuth();
+  console.log(user);
+  
+  if(loading) return <>loading</>
   if(!user) return <NotLog/>
   return (
-    <div>Navbar</div>
+    <LogNav/>
   )
 }
 
