@@ -4,16 +4,16 @@ import { Input } from '@/components/ui/input'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { UserAuth } from '../context/UserAuth'
-import {navigate} from './action'
+import {Navigate} from './action'
 
-const page = () => {
+const Page = () => {
     const {user} = UserAuth();
-    const [post, setPost] = useState();
+    const [post, setPost] = useState("");
     const submit = async (e:any) => {
         e.preventDefault()
         const username : string = user.displayName;
         await axios.post("/api/post", {username, post});
-        navigate()
+        Navigate()
     }
   return (
     <form >
@@ -23,4 +23,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

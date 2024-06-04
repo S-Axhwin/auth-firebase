@@ -21,7 +21,7 @@ const page = () => {
     <div className="h-screen w-screen grid place-items-center">
       <div className="flex flex-col justify-center h-fit overflow-hidden gap-3 border-red-300 border-1 p-3 rounded-lg">
       <div className="flex justify-center">
-      <img className="rounded-[50%]" src={user.photoURL} width={"50"} height={50} alt="profile image"/>
+      <Image className="rounded-[50%]" src={user.photoURL} width={"50"} height={50} alt="profile image"/>
       </div>
       <Input disabled value={user.displayName} />
       <Button onClick={logOut}>logout</Button>

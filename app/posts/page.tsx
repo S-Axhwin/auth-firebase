@@ -8,9 +8,9 @@ const page = async () => {
 
   return (
     <div>
-        {post.map((item:any) => {
+        {post.map((item:any, _ind:any) => {
             return (
-            <div>
+            <div key={_ind}>
                 {item.username}: {item.post}
             </div>)
         })}

@@ -2,6 +2,6 @@
  
 import { redirect } from 'next/navigation'
  
-export async function navigate() {
+export async function Navigate() {
   redirect(`/posts`)
 }
