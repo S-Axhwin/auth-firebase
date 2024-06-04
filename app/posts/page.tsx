@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const page =  () => {
+const Page =  () => {
     const [post, setPost] = useState(null) as any;
     useEffect(() => {
       (async() => {
@@ -23,4 +23,4 @@ const page =  () => {
   )
 }
 
-export default page
+export default Page
