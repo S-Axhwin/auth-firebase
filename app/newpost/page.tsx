@@ -13,7 +13,7 @@ const Page = () => {
     const submit = async (e:any) => {
       setloading(true)
       e.preventDefault()
-      const username : string = user.displayName;
+      const username : string = user?.displayName;
       await axios.post("/api/post", {username, post});
       setloading(false);
       Navigate()
