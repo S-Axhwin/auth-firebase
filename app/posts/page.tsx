@@ -7,6 +7,7 @@ import Image from 'next/image';
 const Page =  () => {
     const { user } = UserAuth();
     console.log(user?.displayName);
+    console.log(user);
     
     const [post, setPost] = useState(null) as any;
     useEffect(() => {
@@ -19,10 +20,13 @@ const Page =  () => {
   return (
     <div className='grid w-full h-screen bg-slate-950 place-items-center rounded-lg'>
       <div className='display bg-slate-900 h-[85%] w-[100%] md:w-[60%] lg:w-[50%] rounded-xl p-2 overflow-hidden'>
-        <div className='header bg-slate-500 h-20 w-full flex justify-center rounded-[2rem]'>
-          <div className='pt-6 text-xl text-destructive-foreground'>
-          Logged in as: {user?.displayName}
-          </div>
+        <div className='header bg-slate-500 h-20 w-full flex justify-center rounded-xl'>
+            <div className='flex flex-col h-full justify-center'>
+              <div className='flex gap-4'>
+              <img className='h-10 w-10 rounded-full' src={user?.photoURL}/>
+              <div>{user?.displayName}</div>
+              </div>
+            </div>
         </div>
         <div className='messagebox overflow-scroll h-[100%] p-5 gap-4 pb-5'>
         {post?.map((item:any, _ind:any) => {
