@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { redirect } from 'next/navigation'
 export async function POST(req: NextRequest) {
-    const prisma = new PrismaClient();
+    const g = global as any
+    const prisma = g.prisma as any || new PrismaClient();
     const body = await req.json();
     console.log(body);
     
