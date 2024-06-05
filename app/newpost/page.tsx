@@ -15,7 +15,6 @@ const Page = () => {
       e.preventDefault()
       const username : string = user?.displayName;
       await axios.post("/api/post", {username, post});
-      setloading(false);
       Navigate()
     }
   return (
