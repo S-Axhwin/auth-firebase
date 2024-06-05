@@ -11,8 +11,9 @@ const Page = () => {
     const [post, setPost] = useState("");
     const [loading, setloading] = useState(false);
     const submit = async (e:any) => {
-      setloading(true)
       e.preventDefault()
+      if(!post) return 0;
+      setloading(true)
       const username : string = user?.displayName;
       await axios.post("/api/post", {username, post});
       Navigate()
