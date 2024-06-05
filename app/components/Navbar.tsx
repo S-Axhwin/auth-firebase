@@ -5,8 +5,6 @@ import NotLog from './NotLog';
 import LogNav from './LogNav';
 const Navbar = () => {
   const { user, loading } = UserAuth();
-  console.log(user);
-  
   if(loading) return <>loading</>
   if(!user) return <NotLog/>
   return (

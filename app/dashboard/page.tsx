@@ -2,21 +2,19 @@
 import { Button } from "@/components/ui/button";
 import { UserAuth } from "../context/UserAuth.jsx"
 import { Input } from "@/components/ui/input";
-
+import redirected from "./Redirect";
 interface UserDetails  {
   user: any
 }
 
 const page = () => {
-  const { user, googleSignIn, logOut, loading }  = UserAuth();
-  console.log(user);
+  const { user, logOut, loading }  = UserAuth();
   
   if(loading) return <>loading</>
-  if(!user) return (
-    <div className="h-screen w-screen grid place-items-center">
-      <Button onClick={async() => {googleSignIn()}}> login </Button>
-    </div>
-  )
+  if(!user) {
+    redirected()
+    return(<></>)
+  }
   return (
     <div className="h-screen w-screen grid place-items-center">
       <div className="flex flex-col justify-center h-fit overflow-hidden gap-3 border-red-300 border-1 p-3 rounded-lg">
